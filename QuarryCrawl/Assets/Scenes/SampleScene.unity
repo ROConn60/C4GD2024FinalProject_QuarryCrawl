@@ -255,6 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   lookSpeed: 5
+  gravity: 3
+  jumpForce: 5
   groundChecker: {fileID: 952901049}
   groundCheckRadius: 0.2
   groundLayer:
@@ -558,14 +560,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222623988}
-  m_LocalRotation: {x: -0, y: -0, z: -0.19243304, w: 0.9813101}
+  m_LocalRotation: {x: -0, y: -0, z: -0.19560942, w: 0.9806819}
   m_LocalPosition: {x: 1.37, y: 1.8, z: 6.57}
   m_LocalScale: {x: 10, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -22.19}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -22.561}
 --- !u!1 &1313728178
 GameObject:
   m_ObjectHideFlags: 0

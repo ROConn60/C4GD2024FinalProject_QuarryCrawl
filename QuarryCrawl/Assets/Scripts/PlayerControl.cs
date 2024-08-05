@@ -12,9 +12,15 @@ public class PlayerControl : MonoBehaviour
     Vector3 cameraLook;
     Vector3 playerLook;
 
+    public float gravity;
+    public float jumpForce;
+
     public Transform groundChecker;
     public float groundCheckRadius;
     public LayerMask groundLayer;
+
+    private bool isJumping;
+    private float jumpCountdown = 1f;
 
     void Start()
     {
@@ -26,26 +32,43 @@ public class PlayerControl : MonoBehaviour
     
     void Update()
     {
-        cameraLook += new Vector3(-Input.GetAxis("Mouse Y") * lookSpeed, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        cameraLook += new Vector3(-Input.GetAxis("Mouse Y") * lookSpeed, 0, 0);
         playerLook += new Vector3(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         cameraLook.x = Mathf.Clamp(cameraLook.x, -80, 80);
-        Camera.main.transform.eulerAngles = cameraLook;
+        Camera.main.transform.localEulerAngles = cameraLook;
         transform.eulerAngles = playerLook;
 
         //forward
         float nextVelocityZ = Input.GetAxisRaw("Vertical") * speed;
         //up down
-        float nextVelocityY = -2f;
+        float nextVelocityY;
+        if(Input.GetKeyDown(KeyCode.Space) && CheckGrounded() | isJumping)
+        {
+            nextVelocityY = jumpForce;
+            jumpCountdown -= Time.deltaTime;
+            isJumping = true;
+            if(jumpCountdown < 0f)
+            {
+                isJumping = false;
+                jumpCountdown = 1f;
+            }
+        }
+        else
+        {
+            nextVelocityY = -gravity;
+        }
         //left right
         float nextVelocityX = Input.GetAxisRaw("Horizontal") * speed;
         rb.velocity = transform.TransformDirection(nextVelocityX, nextVelocityY, nextVelocityZ);
-        
 
+        
     }
 
     public bool CheckGrounded()
     {
         return Physics.CheckSphere(groundChecker.position, groundCheckRadius, groundLayer);
     }
+
+
 
 }
