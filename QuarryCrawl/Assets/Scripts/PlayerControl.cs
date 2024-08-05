@@ -35,20 +35,10 @@ public class PlayerControl : MonoBehaviour
         //forward
         float nextVelocityZ = Input.GetAxisRaw("Vertical") * speed;
         //up down
-        float nextVelocityY;
-        if(CheckGrounded()) //constant earthquakes
-        {
-            //nextVelocityY -= 1f;
-            Debug.Log("grounded");
-        }
-        else
-        {
-            nextVelocityY = rb.velocity.y;
-            Debug.Log("no");
-        }
+        float nextVelocityY = -2f;
         //left right
         float nextVelocityX = Input.GetAxisRaw("Horizontal") * speed;
-        //rb.velocity = transform.TransformDirection(nextVelocityX, nextVelocityY, nextVelocityZ);
+        rb.velocity = transform.TransformDirection(nextVelocityX, nextVelocityY, nextVelocityZ);
         
 
     }
