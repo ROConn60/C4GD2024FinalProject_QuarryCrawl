@@ -620,9 +620,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5896592a8650ee64494c3c6a2bf6d1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crystalType: 0
-  maxVeinSize: 0
-  crystalsLeft: 0
+  crystalType: 1
+  maxVeinSize: 5
+  crystalsLeft: 5
   inventory: {fileID: 0}
 --- !u!1 &6437994747534751390
 GameObject:

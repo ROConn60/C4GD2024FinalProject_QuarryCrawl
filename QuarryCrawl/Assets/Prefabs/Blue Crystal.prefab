@@ -5493,6 +5493,7 @@ GameObject:
   - component: {fileID: 6440087682935424368}
   - component: {fileID: 6440087682935424369}
   - component: {fileID: 6962362803537739372}
+  - component: {fileID: 5954914974489720718}
   m_Layer: 0
   m_Name: Blue Crystal
   m_TagString: Use Tool
@@ -5566,6 +5567,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814b07870b9e2dd42814ad43e9b00c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5954914974489720718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440087682935424370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5896592a8650ee64494c3c6a2bf6d1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystalType: 0
+  maxVeinSize: 5
+  crystalsLeft: 5
+  inventory: {fileID: 0}
 --- !u!1 &6440087682986242427
 GameObject:
   m_ObjectHideFlags: 0
