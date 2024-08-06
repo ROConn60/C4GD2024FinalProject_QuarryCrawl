@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 945352940}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -656,6 +656,7 @@ GameObject:
   - component: {fileID: 1434828498}
   - component: {fileID: 1434828497}
   - component: {fileID: 1434828499}
+  - component: {fileID: 1434828500}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -744,6 +745,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.671422, z: 1.4806163}
   m_Center: {x: 0, y: -0.335711, z: 0.24030821}
+--- !u!114 &1434828500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434828495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e65bda77c0c8245beac8b37e6d163f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interactor: {fileID: 0}
+  interactRange: 3
 --- !u!1 &1473032344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,5 +1173,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 945352939}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6962362803537739372, guid: 6a00f57b721e0f147abdf9b8be82caea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6a00f57b721e0f147abdf9b8be82caea, type: 3}

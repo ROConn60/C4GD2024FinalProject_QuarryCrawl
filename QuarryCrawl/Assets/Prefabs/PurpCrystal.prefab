@@ -611,6 +611,9 @@ MonoBehaviour:
   holdTime: 0
   miningSpeed: 1
   mineTime: 3
+  keyHeld: 0
+  inRange: 0
+  miningRange: 2
 --- !u!1 &6437994747534751390
 GameObject:
   m_ObjectHideFlags: 0
