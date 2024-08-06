@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrystalScript : MonoBehaviour, IInteractable
+public class InventoryScript : MonoBehaviour
 {
-    public void Interact()
-    {
-        Debug.Log("Mined");w
-    }
-
     // Start is called before the first frame update
     void Start()
     {

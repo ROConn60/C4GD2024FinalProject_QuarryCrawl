@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 8818005357062092803}
   m_Layer: 0
   m_Name: Flying Crystal
-  m_TagString: Untagged
+  m_TagString: Use Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,7 +499,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814b07870b9e2dd42814ad43e9b00c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  holdTime: 0
-  miningSpeed: 1
-  mineTime: 3
