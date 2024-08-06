@@ -24,7 +24,7 @@ public class FlashlightScript : MonoBehaviour
         }
         else
         {
-            myLight.GetComponent<Light>().intensity = intensity * power / 100 + minIntensity;
+            myLight.GetComponent<Light>().intensity = (intensity - minIntensity) * power / 100 + minIntensity;
             power -= (Time.deltaTime * decayRate);
         }
         
