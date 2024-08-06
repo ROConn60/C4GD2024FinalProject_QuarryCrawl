@@ -5492,7 +5492,6 @@ GameObject:
   - component: {fileID: 6440087682935424375}
   - component: {fileID: 6440087682935424368}
   - component: {fileID: 6440087682935424369}
-  - component: {fileID: 6962362803537739372}
   - component: {fileID: 5954914974489720718}
   m_Layer: 0
   m_Name: Blue Crystal
@@ -5555,18 +5554,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.39130592, y: 0.3917396, z: 0.56832284}
   m_Center: {x: 1.1579021, y: 0.078930885, z: 0.18227449}
---- !u!114 &6962362803537739372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6440087682935424370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 814b07870b9e2dd42814ad43e9b00c1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5954914974489720718
 MonoBehaviour:
   m_ObjectHideFlags: 0

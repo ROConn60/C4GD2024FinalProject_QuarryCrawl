@@ -536,7 +536,6 @@ GameObject:
   - component: {fileID: 6437994746955809406}
   - component: {fileID: 6437994746955809401}
   - component: {fileID: 6437994746955809400}
-  - component: {fileID: 5419665623687992728}
   - component: {fileID: -5519633192044859878}
   m_Layer: 0
   m_Name: PurpCrystal
@@ -596,18 +595,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41055655, y: 0.43243286, z: 0.78366005}
   m_Center: {x: 0.107317634, y: -0.0559914, z: 0.38415888}
---- !u!114 &5419665623687992728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6437994746955809403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 814b07870b9e2dd42814ad43e9b00c1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-5519633192044859878
 MonoBehaviour:
   m_ObjectHideFlags: 0
