@@ -18,7 +18,7 @@ public class Shop : MonoBehaviour, IInteractable
         }
         if(upgradeType == 1)
         {
-            InventoryScript.instance.maxCrystalStorage += 50f;
+            InventoryScript.instance.maxCrystalStorage += 50;
             //tell maxCrystalStorage to increase
         }
         if(upgradeType == 2)
