@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CrystalScript : MonoBehaviour, IInteractable
 {
+    
     public void Interact()
     {
-        Debug.Log("Mined");w
+        Debug.Log("Mined");
     }
 
     // Start is called before the first frame update
