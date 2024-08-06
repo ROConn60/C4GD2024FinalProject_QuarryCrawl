@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: 6437994746955809401}
   - component: {fileID: 6437994746955809400}
   - component: {fileID: 5419665623687992728}
+  - component: {fileID: -5519633192044859878}
   m_Layer: 0
   m_Name: PurpCrystal
   m_TagString: Use Tool
@@ -607,6 +608,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814b07870b9e2dd42814ad43e9b00c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5519633192044859878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6437994746955809403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5896592a8650ee64494c3c6a2bf6d1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystalType: 0
+  maxVeinSize: 0
+  crystalsLeft: 0
+  inventory: {fileID: 0}
 --- !u!1 &6437994747534751390
 GameObject:
   m_ObjectHideFlags: 0
