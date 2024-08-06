@@ -49,6 +49,7 @@ public class Mine : MonoBehaviour, IInteractable
                 }
                 inventory.GetComponent<InventoryScript>().addToInventory(crystalType, crystalsMined);
                 crystalsLeft -= 1f;
+                Debug.Log("Mined");
             }
             else
             {

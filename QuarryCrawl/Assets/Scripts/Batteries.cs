@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrystalScript : MonoBehaviour, IInteractable
+public class Batteries : MonoBehaviour, IInteractable
 {
-    
+    public GameObject flashlight;
+
     public void Interact()
     {
-        Debug.Log("Mined");
+        flashlight.GetComponent<FlashlightScript>().power = 100;
+        Debug.Log("Power reset");
     }
 
     // Start is called before the first frame update
