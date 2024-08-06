@@ -1024,6 +1024,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flying Crystal
       objectReference: {fileID: 0}
+    - target: {fileID: 1942461238786543427, guid: 5f1488a528c4d8e49840f6bf64d56931, type: 3}
+      propertyPath: m_Size.x
+      value: 0.29933333
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942461238786543427, guid: 5f1488a528c4d8e49840f6bf64d56931, type: 3}
+      propertyPath: m_Center.x
+      value: -0.06797421
+      objectReference: {fileID: 0}
     - target: {fileID: 8818005357062092803, guid: 5f1488a528c4d8e49840f6bf64d56931, type: 3}
       propertyPath: player
       value: 

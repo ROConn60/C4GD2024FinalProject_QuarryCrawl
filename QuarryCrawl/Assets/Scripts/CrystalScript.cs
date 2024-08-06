@@ -10,6 +10,7 @@ public class CrystalScript : MonoBehaviour
     public float mineTime = 3f;
     public bool keyHeld = false;
     public bool inRange = false;
+    public float miningRange;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class CrystalScript : MonoBehaviour
     void Update()
     {
         
-        if (keyHeld && Vector3.Distance(transform.position, player.transform.position) < 2)
+        if (keyHeld && Vector3.Distance(transform.position, player.transform.position) < miningRange)
         {
             holdTime += Time.deltaTime;
         }
