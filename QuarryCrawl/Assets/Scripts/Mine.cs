@@ -52,12 +52,12 @@ public class Mine : MonoBehaviour, IInteractable
             }
             else
             {
-                //display "vein empty" or something
+                Debug.Log("Vein Empty");
             }
         }
         else
         {
-            //display "inventory full" or something
+            Debug.Log("Inventory Full");
         }
         
     }

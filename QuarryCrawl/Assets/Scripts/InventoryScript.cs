@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventoryScript : MonoBehaviour
 {
@@ -11,6 +12,14 @@ public class InventoryScript : MonoBehaviour
     public int crystalStorage = 0;
     public int maxCrystalStorage = 100;
     public bool inventoryFull = false;
+
+    public float money;
+    public float blueValue;
+    public float purpValue;
+    public float orangeValue;
+
+    public TMP_Text inventoryText;
+    public TMP_Text walletText;
 
     // Start is called before the first frame update
     void Start()
@@ -42,5 +51,27 @@ public class InventoryScript : MonoBehaviour
             inventoryFull = true;
         }
         crystalStorage = blueCrystals + purpCrystals + orangeCrystals;
+        inventoryText.text = blueCrystals.ToString() + " Blue | " + purpCrystals.ToString() + " Purple | " + orangeCrystals.ToString() + " Orange | " + crystalStorage.ToString() + " Total";
+        walletText.text = "$" + money.ToString();
+    }
+
+    public void RemoveCrystals()
+    {
+        for (int i = blueCrystals; i > 0; i--)
+        {
+            blueCrystals -= 1;
+            money += blueValue;
+        }
+        for (int i = purpCrystals; i > 0; i--)
+        {
+            purpCrystals -= 1;
+            money += purpValue;
+        }
+        for (int i = orangeCrystals; i > 0; i--)
+        {
+            orangeCrystals -= 1;
+            money += orangeValue;
+        }
+
     }
 }
