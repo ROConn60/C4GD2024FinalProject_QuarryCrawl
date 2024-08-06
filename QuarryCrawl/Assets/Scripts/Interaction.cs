@@ -16,7 +16,7 @@ public class Interaction : MonoBehaviour
     public Transform Interactor;
     public float interactRange;
 
-    public TMP_Text interactText;
+    //public TMP_Text interactText;
 
     private float toolRefresh;
     public float toolCooldown = 1f;
@@ -36,14 +36,14 @@ public class Interaction : MonoBehaviour
             {
                 if(hitInfo.collider.gameObject.CompareTag("Interaction"))
                 {
-                    interactText.text = "Press E";
+                    //interactText.text = "Press E";
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         interactObj.Interact();
                     }
                 }else if (hitInfo.collider.gameObject.CompareTag("Use Tool"))
                 {
-                    interactText.text = "Mouse0";
+                    //interactText.text = "Mouse0";
                     if (Input.GetKey(KeyCode.Mouse0) && toolRefresh <= 0f)
                     {
                         interactObj.Interact();
@@ -54,17 +54,18 @@ public class Interaction : MonoBehaviour
             }
             else
             {
-                interactText.text = " ";
+                //interactText.text = " ";
             }
 
         }
         else
         {
-            interactText.text = " ";
+            //interactText.text = " ";
         }
         if (toolRefresh > 0)
         {
             toolRefresh -= Time.deltaTime;
         }
     }
+    
 }
