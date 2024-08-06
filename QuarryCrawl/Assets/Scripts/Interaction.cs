@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 interface IInteractable
 {
@@ -13,6 +14,7 @@ public class Interaction : MonoBehaviour
     public Transform Interactor;
     public float interactRange;
 
+    public TMP_Text interactText;
 
     void Start()
     {
@@ -27,12 +29,26 @@ public class Interaction : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
-                Debug.Log("Interactable");
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                if(hitInfo.collider.gameObject.CompareTag("Interaction"))
                 {
-                    interactObj.Interact();
+                    interactText.text = "Press E";
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        interactObj.Interact();
+                    }
+                }else if (hitInfo.collider.gameObject.CompareTag("Use Tool"))
+                {
+                    interactText.text = "Mouse0";
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
+                    {
+                        interactObj.Interact();
+                    }
                 }
-                
+
+            }
+            else
+            {
+                interactText.text = " ";
             }
         }
         
