@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
 
+    public static PlayerControl instance;
+
     Rigidbody rb;
     public float speed;
 
@@ -21,6 +23,7 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
+        instance = this;
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

@@ -8,24 +8,36 @@ public class Shop : MonoBehaviour, IInteractable
     //0 is mining upgrade
     //1 is inventory upgrade
     //2 is speed upgrade
+    [SerializeField] private float price;
 
     public void Interact()
     {
-        if(upgradeType == 0) //mining speed increase
+        if(InventoryScript.instance.money >= price)
         {
-            Interaction.instance.toolCooldown -= 0.2f;
-            //tell interaction script to decrease toolCooldown float
-        }
-        if(upgradeType == 1)
+            if (upgradeType == 0) //mining speed increase
+            {
+                Interaction.instance.toolCooldown -= 0.2f;
+                //tell interaction script to decrease toolCooldown float
+                Debug.Log("Mining Speed Increased");
+            }
+            if (upgradeType == 1)
+            {
+                InventoryScript.instance.maxCrystalStorage += 50;
+                //tell maxCrystalStorage to increase
+                Debug.Log("Inventory Space Increased");
+            }
+            if (upgradeType == 2)
+            {
+                PlayerControl.instance.speed += 2f;
+                //increase speed float
+                Debug.Log("Speed Increased");
+            }
+            InventoryScript.instance.money -= price;
+        }else
         {
-            InventoryScript.instance.maxCrystalStorage += 50;
-            //tell maxCrystalStorage to increase
+            Debug.Log("go make some money");
         }
-        if(upgradeType == 2)
-        {
-            //access player control script
-            //increase speed float
-        }
+        
     }
 
 
