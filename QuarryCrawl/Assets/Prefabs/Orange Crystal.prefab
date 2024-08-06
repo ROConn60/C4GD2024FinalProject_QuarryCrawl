@@ -432,8 +432,9 @@ GameObject:
   - component: {fileID: 1942461238786543424}
   - component: {fileID: 1942461238786543427}
   - component: {fileID: 8818005357062092803}
+  - component: {fileID: 8200369923536706640}
   m_Layer: 0
-  m_Name: Flying Crystal
+  m_Name: Orange Crystal
   m_TagString: Use Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -499,3 +500,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814b07870b9e2dd42814ad43e9b00c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8200369923536706640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942461238786543426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5896592a8650ee64494c3c6a2bf6d1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystalType: 2
+  maxVeinSize: 5
+  crystalsLeft: 5
+  inventory: {fileID: 0}

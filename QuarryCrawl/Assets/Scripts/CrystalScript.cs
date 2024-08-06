@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CrystalScript : MonoBehaviour, IInteractable
 {
+    
     public void Interact()
     {
         Debug.Log("Mined");
