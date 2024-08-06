@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrystalScript : MonoBehaviour
+public class CrystalScript : MonoBehaviour, IInteractable
 {
-    public GameObject player;
-    public float holdTime = 0f;
-    public float miningSpeed = 1f;
-    public float mineTime = 3f;
-    public bool keyHeld = false;
-    public bool inRange = false;
-    public float miningRange;
+    public void Interact()
+    {
+        Debug.Log("Mined");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,29 +19,5 @@ public class CrystalScript : MonoBehaviour
     void Update()
     {
         
-        if (keyHeld && Vector3.Distance(transform.position, player.transform.position) < miningRange)
-        {
-            holdTime += Time.deltaTime;
-        }
-        else
-        {
-            holdTime = 0;
-            keyHeld = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            keyHeld = true;
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            keyHeld = false; ;
-        }
-        if (holdTime > mineTime)
-        {
-            Destroy(gameObject);
-        }
-
-
-
     }
 }
