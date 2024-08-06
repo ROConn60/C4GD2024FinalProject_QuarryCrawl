@@ -6,7 +6,6 @@ public class PlayerControl : MonoBehaviour
 {
 
     public static PlayerControl instance;
-
     Rigidbody rb;
     public float speed;
 

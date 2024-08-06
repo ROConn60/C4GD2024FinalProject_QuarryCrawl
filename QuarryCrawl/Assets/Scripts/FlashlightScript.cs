@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FlashlightScript : MonoBehaviour
 {
@@ -10,23 +11,51 @@ public class FlashlightScript : MonoBehaviour
     public float power = 100f;
     public float decayRate = 1f;
     public float minIntensity = 0.75f;
+    public bool flashlightOn = false;
+    public TMP_Text powerText;
     void Start()
     {
         instance = this;
     }
 
-    void Update()
+
+    public void changeFlashlight()
     {
-        if (power <= 0)
+        if (flashlightOn)
         {
-            power = 0;
-            myLight.GetComponent<Light>().intensity = intensity * 0.25f;
+            flashlightOn = false;
         }
         else
         {
-            myLight.GetComponent<Light>().intensity = (intensity - minIntensity) * power / 100 + minIntensity;
-            power -= (Time.deltaTime * decayRate);
+            flashlightOn = true;
         }
+    }
+
+    void Update()
+    {
+        powerText.text = Mathf.Floor(power).ToString() + "%";
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            changeFlashlight();
+        }
+        if (flashlightOn)
+        {
+            if (power <= 0)
+            {
+                power = 0;
+                myLight.GetComponent<Light>().intensity = intensity * 0.25f;
+            }
+            else
+            {
+                myLight.GetComponent<Light>().intensity = (intensity - minIntensity) * power / 100 + minIntensity;
+                power -= (Time.deltaTime * decayRate);
+            }
+        }
+        else
+        {
+            myLight.GetComponent<Light>().intensity = 0;
+        }
+        
         
     }
 }
