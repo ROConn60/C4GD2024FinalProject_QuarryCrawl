@@ -326,9 +326,10 @@ GameObject:
   - component: {fileID: 214780801}
   - component: {fileID: 214780800}
   - component: {fileID: 214780799}
+  - component: {fileID: 214780803}
   m_Layer: 0
   m_Name: Battery
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,6 +412,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &214780803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214780798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed2b9e029fc9d044b55ea55efd7cc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashlight: {fileID: 0}
 --- !u!1 &253385441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,6 +1292,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5676840300738431910, guid: 2ce7f3f60a7219d478bdc624979d8024, type: 3}
   m_PrefabInstance: {fileID: 994180118}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &1025158711 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108038271100546340, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
+  m_PrefabInstance: {fileID: 541860153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1092899799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,6 +1901,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1916836078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1002705123656268, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
+  m_PrefabInstance: {fileID: 541860153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1916836082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916836078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4fc1169f2ef5754f85b2ece8462b7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myLight: {fileID: 1025158711}
+  intensity: 3
+  power: 100
+  decayRate: 5
 --- !u!1 &1932866738
 GameObject:
   m_ObjectHideFlags: 0
