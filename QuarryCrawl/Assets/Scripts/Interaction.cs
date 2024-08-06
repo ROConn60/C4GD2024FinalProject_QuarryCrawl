@@ -56,8 +56,13 @@ public class Interaction : MonoBehaviour
             {
                 interactText.text = " ";
             }
+
         }
-        if(toolRefresh > 0)
+        else
+        {
+            interactText.text = " ";
+        }
+        if (toolRefresh > 0)
         {
             toolRefresh -= Time.deltaTime;
         }
