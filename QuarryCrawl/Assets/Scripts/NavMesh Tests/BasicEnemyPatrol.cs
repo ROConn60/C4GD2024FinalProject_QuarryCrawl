@@ -8,6 +8,11 @@ public class BasicEnemyPatrol : MonoBehaviour
     private int destPoint;
     private UnityEngine.AI.NavMeshAgent agent;
 
+    private AudioSource source;
+    public AudioClip scream;
+    public AudioClip steps;
+
+    private bool walking;
 
     [SerializeField] private float waitTime;
 
@@ -17,6 +22,7 @@ public class BasicEnemyPatrol : MonoBehaviour
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         // Disabling auto-braking allows for continuous movement
@@ -31,6 +37,10 @@ public class BasicEnemyPatrol : MonoBehaviour
 
     void GotoNextPoint()
     {
+        if(!walking)
+        {
+            StartWalking();
+        }
         if (!playerInRange)
         {
             chasingPlayer = false;
@@ -42,6 +52,7 @@ public class BasicEnemyPatrol : MonoBehaviour
         // Set the agent to go to the currently selected destination.
         if(chasingPlayer)
         {
+            
             agent.destination = GameObject.Find("Player").transform.position;
             agent.speed = 5f;
         }else
@@ -69,6 +80,7 @@ public class BasicEnemyPatrol : MonoBehaviour
         {
             if(chasingPlayer)
             {
+                StopWalking();
                 Invoke("GotoNextPoint", waitTime);
             }
             else
@@ -77,6 +89,14 @@ public class BasicEnemyPatrol : MonoBehaviour
             }
             
         }
+        if(!source.isPlaying && walking)
+        {
+            source.PlayOneShot(steps);
+        }
+        if(source.isPlaying && !walking)
+        {
+            source.Stop();
+        }
             
     }
 
@@ -84,6 +104,7 @@ public class BasicEnemyPatrol : MonoBehaviour
     {
         if(other.gameObject.layer == 8)
         {
+            
             Destroy(other.gameObject);
         }
     }
@@ -92,6 +113,7 @@ public class BasicEnemyPatrol : MonoBehaviour
     {
         if (other.gameObject.layer == 8)
         {
+            source.PlayOneShot(scream);
             agent.destination = GameObject.Find("Player").transform.position;
             agent.speed = 5f;
             playerInRange = true;
@@ -106,4 +128,16 @@ public class BasicEnemyPatrol : MonoBehaviour
             playerInRange = false;
         }
     }
+
+    void StartWalking()
+    {
+        walking = true;
+    }
+
+    void StopWalking()
+    {
+        walking = false;
+    }
+
 }
+
