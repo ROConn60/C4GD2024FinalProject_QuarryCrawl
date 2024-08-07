@@ -34,6 +34,19 @@ public class Mine : MonoBehaviour, IInteractable
         {
             replenishCountdown = 30f;
         }
+        if (crystalType == 0) 
+        {
+            gameObject.name = "Mine Blue Crystal " + crystalsLeft.ToString() + "/" + maxVeinSize.ToString();
+        }
+        if (crystalType == 1)
+        {
+            gameObject.name = "Mine Orange Crystal " + crystalsLeft.ToString() + "/" + maxVeinSize.ToString();
+        }
+        if (crystalType == 2)
+        {
+            gameObject.name = "Mine Purple Crystal " + crystalsLeft.ToString() + "/" + maxVeinSize.ToString();
+        }
+
     }
 
     public void Interact()
