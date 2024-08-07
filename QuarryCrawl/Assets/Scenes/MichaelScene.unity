@@ -1430,7 +1430,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Interactor: {fileID: 1434828496}
   interactRange: 3
-  interactText: {fileID: 91740569}
   toolCooldown: 1
 --- !u!1 &1473032344
 GameObject:
