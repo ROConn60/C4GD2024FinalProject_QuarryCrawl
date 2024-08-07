@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager instance;
+
+
+    public GameObject HUD;
     public GameObject StartScreen;
     public GameObject ControlsScreen;
     public GameObject PauseMenu;
@@ -20,17 +24,25 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         startbutton.onClick.AddListener(LoadGame);
         controlsbutton1.onClick.AddListener(ShowControls);
         controlsbutton2.onClick.AddListener(ShowControls);
         backbutton.onClick.AddListener(goback);
         resumebutton.onClick.AddListener(continuegame);
         restartbutton.onClick.AddListener(restartgame);
+        Time.timeScale = 0f;
     }
     public void LoadGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+        HUD.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        StartScreen.SetActive(false);
     }
+
     public void ShowControls()
     {
         PauseMenu.SetActive(false);
@@ -49,29 +61,48 @@ public class MenuManager : MonoBehaviour
             StartScreen.SetActive(true);
         }
     }
+    public void Die()
+    {
+        HUD.SetActive(false);
+        GameoverScreen.SetActive(true);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     public void restartgame()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         GameoverScreen.SetActive(false);
         StartScreen.SetActive(true);
     }
     public void continuegame()
     {
+        isPaused = !isPaused;
+        HUD.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
     // Update is called once per frame
     void Update()
     { 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !StartScreen.activeInHierarchy)
         {
             isPaused = !isPaused;
             PauseMenu.SetActive(isPaused);
             if (isPaused)
             {
+                HUD.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 Time.timeScale = 0f;
             }
             else
             {
+                HUD.SetActive(true);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 Time.timeScale = 1f;
             }
                

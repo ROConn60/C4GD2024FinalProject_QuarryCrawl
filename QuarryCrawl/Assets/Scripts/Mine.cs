@@ -40,11 +40,11 @@ public class Mine : MonoBehaviour, IInteractable
         }
         if (crystalType == 1)
         {
-            gameObject.name = "Mine Orange Crystal " + crystalsLeft.ToString() + "/" + maxVeinSize.ToString();
+            gameObject.name = "Mine Purple Crystal " + crystalsLeft.ToString() + "/" + maxVeinSize.ToString();
         }
         if (crystalType == 2)
         {
-            gameObject.name = "Mine Purple Crystal " + crystalsLeft.ToString() + "/" + maxVeinSize.ToString();
+            gameObject.name = "Mine Orange Crystal " + crystalsLeft.ToString() + "/" + maxVeinSize.ToString();
         }
 
     }

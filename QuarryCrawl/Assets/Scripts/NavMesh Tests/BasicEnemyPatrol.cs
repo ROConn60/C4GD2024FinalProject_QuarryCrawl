@@ -104,8 +104,8 @@ public class BasicEnemyPatrol : MonoBehaviour
     {
         if(other.gameObject.layer == 8)
         {
-            
-            Destroy(other.gameObject);
+
+            MenuManager.instance.Die();
         }
     }
 
