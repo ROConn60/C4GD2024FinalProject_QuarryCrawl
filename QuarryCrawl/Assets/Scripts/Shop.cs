@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour, IInteractable
     //1 is inventory upgrade
     //2 is speed upgrade
     [SerializeField] private float price;
+    [SerializeField] private float degree;
 
     public void Interact()
     {
@@ -16,23 +17,24 @@ public class Shop : MonoBehaviour, IInteractable
         {
             if (upgradeType == 0) //mining speed increase
             {
-                Interaction.instance.toolCooldown -= 0.2f;
+                Interaction.instance.toolCooldown -= degree;
                 //tell interaction script to decrease toolCooldown float
                 Debug.Log("Mining Speed Increased");
             }
             if (upgradeType == 1)
             {
-                InventoryScript.instance.maxCrystalStorage += 50;
+                InventoryScript.instance.maxCrystalStorage += (int)degree;
                 //tell maxCrystalStorage to increase
                 Debug.Log("Inventory Space Increased");
             }
             if (upgradeType == 2)
             {
-                PlayerControl.instance.speed += 2f;
+                PlayerControl.instance.speed += degree;
                 //increase speed float
                 Debug.Log("Speed Increased");
             }
             InventoryScript.instance.money -= price;
+            Destroy(gameObject);
         }else
         {
             Debug.Log("go make some money");

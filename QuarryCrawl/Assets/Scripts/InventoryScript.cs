@@ -55,7 +55,7 @@ public class InventoryScript : MonoBehaviour
             inventoryFull = false;
         }
         crystalStorage = blueCrystals + purpCrystals + orangeCrystals;
-        inventoryText.text = blueCrystals.ToString() + " Blue | " + purpCrystals.ToString() + " Purple | " + orangeCrystals.ToString() + " Orange | " + crystalStorage.ToString() + " Total";
+        inventoryText.text = blueCrystals.ToString() + " Blue | " + purpCrystals.ToString() + " Purple | " + orangeCrystals.ToString() + " Orange | " + crystalStorage.ToString() + "/" + maxCrystalStorage.ToString() + " Total";
         walletText.text = "$" + money.ToString();
     }
 
