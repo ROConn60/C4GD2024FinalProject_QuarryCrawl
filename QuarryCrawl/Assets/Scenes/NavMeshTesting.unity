@@ -368,7 +368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &65652719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3559,7 +3559,7 @@ GameObject:
   - component: {fileID: 2108565609}
   - component: {fileID: 2108565608}
   - component: {fileID: 2108565607}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
