@@ -8,9 +8,11 @@ public class BasicEnemyPatrol : MonoBehaviour
     private int destPoint;
     private UnityEngine.AI.NavMeshAgent agent;
 
-    [SerializeField] private bool autobrake;
+
+    [SerializeField] private float waitTime;
 
     [SerializeField] private bool chasingPlayer = false;
+    private bool playerInRange;
 
 
     void Start()
@@ -20,7 +22,7 @@ public class BasicEnemyPatrol : MonoBehaviour
         // Disabling auto-braking allows for continuous movement
         // between points (ie, the agent doesn't slow down as it
         // approaches a destination point).
-        agent.autoBraking = autobrake;
+        agent.autoBraking = false;
         destPoint = Random.Range(0, points.Length);
 
         GotoNextPoint();
@@ -29,6 +31,10 @@ public class BasicEnemyPatrol : MonoBehaviour
 
     void GotoNextPoint()
     {
+        if (!playerInRange)
+        {
+            chasingPlayer = false;
+        }
         // Returns if no points have been set up
         if (points.Length == 0)
             return;
@@ -36,7 +42,7 @@ public class BasicEnemyPatrol : MonoBehaviour
         // Set the agent to go to the currently selected destination.
         if(chasingPlayer)
         {
-            agent.destination = GameObject.Find("Player Dummy").transform.position;
+            agent.destination = GameObject.Find("Player").transform.position;
             agent.speed = 5f;
         }else
         {
@@ -60,6 +66,44 @@ public class BasicEnemyPatrol : MonoBehaviour
         // Choose the next destination point when the agent gets
         // close to the current one.
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
-            GotoNextPoint();
+        {
+            if(chasingPlayer)
+            {
+                Invoke("GotoNextPoint", waitTime);
+            }
+            else
+            {
+                GotoNextPoint();
+            }
+            
+        }
+            
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.layer == 8)
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 8)
+        {
+            agent.destination = GameObject.Find("Player").transform.position;
+            agent.speed = 5f;
+            playerInRange = true;
+            chasingPlayer = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.layer == 8)
+        {
+            playerInRange = false;
+        }
     }
 }
