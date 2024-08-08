@@ -18,7 +18,7 @@ public class BasicEnemyPatrol : MonoBehaviour
 
     [SerializeField] private bool chasingPlayer = false;
     private bool playerInRange;
-
+    Animator anim;
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class BasicEnemyPatrol : MonoBehaviour
         // approaches a destination point).
         agent.autoBraking = false;
         destPoint = Random.Range(0, points.Length);
-
+        anim = GetComponent<Animator>();
         GotoNextPoint();
     }
 
@@ -40,6 +40,7 @@ public class BasicEnemyPatrol : MonoBehaviour
         if(!walking)
         {
             StartWalking();
+            anim.SetBool("Walking", true);
         }
         if (!playerInRange)
         {
@@ -104,7 +105,7 @@ public class BasicEnemyPatrol : MonoBehaviour
     {
         if(other.gameObject.layer == 8)
         {
-
+            anim.SetBool("Attacking", true);
             MenuManager.instance.Die();
         }
     }
