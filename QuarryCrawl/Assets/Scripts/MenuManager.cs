@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     public GameObject ControlsScreen;
     public GameObject PauseMenu;
     public GameObject GameoverScreen;
+    public GameObject shop;
     public Button startbutton;
     public Button controlsbutton1;
     public Button controlsbutton2;
@@ -109,4 +110,14 @@ public class MenuManager : MonoBehaviour
         }
     }
     
+    public void OpenShop()
+    {
+        shop.SetActive(true);
+        Time.timeScale = 0f;
+        HUD.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+    }
+
 }
