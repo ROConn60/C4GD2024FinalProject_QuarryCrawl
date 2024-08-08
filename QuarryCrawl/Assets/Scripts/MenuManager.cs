@@ -22,6 +22,7 @@ public class MenuManager : MonoBehaviour
     public Button resumebutton;
     public Button restartbutton;
     public bool isPaused = false;
+    private bool shopOpen = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -90,22 +91,30 @@ public class MenuManager : MonoBehaviour
     { 
         if (Input.GetKeyDown(KeyCode.Escape) && !StartScreen.activeInHierarchy)
         {
-            isPaused = !isPaused;
-            PauseMenu.SetActive(isPaused);
-            if (isPaused)
+            if(shopOpen)
             {
-                HUD.SetActive(false);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                Time.timeScale = 0f;
+                CloseShop();
             }
             else
             {
-                HUD.SetActive(true);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                Time.timeScale = 1f;
+                isPaused = !isPaused;
+                PauseMenu.SetActive(isPaused);
+                if (isPaused)
+                {
+                    HUD.SetActive(false);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    Time.timeScale = 0f;
+                }
+                else
+                {
+                    HUD.SetActive(true);
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    Time.timeScale = 1f;
+                }
             }
+            
                
         }
     }
@@ -117,7 +126,17 @@ public class MenuManager : MonoBehaviour
         HUD.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        shopOpen = true;
+    }
 
+    public void CloseShop()
+    {
+        shop.SetActive(false);
+        Time.timeScale = 1f;
+        HUD.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        shopOpen = false;
     }
 
 }
