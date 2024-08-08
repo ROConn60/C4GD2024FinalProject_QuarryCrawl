@@ -24,7 +24,7 @@ public class BasicEnemyPatrol : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
+        
         // Disabling auto-braking allows for continuous movement
         // between points (ie, the agent doesn't slow down as it
         // approaches a destination point).
