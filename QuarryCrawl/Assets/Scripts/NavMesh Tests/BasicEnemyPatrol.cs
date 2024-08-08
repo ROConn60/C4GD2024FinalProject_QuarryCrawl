@@ -8,9 +8,11 @@ public class BasicEnemyPatrol : MonoBehaviour
     private int destPoint;
     private UnityEngine.AI.NavMeshAgent agent;
 
-    private AudioSource source;
+    public AudioSource source;
+    public AudioSource screamSource;
     public AudioClip scream;
     public AudioClip steps;
+    public AudioClip screech;
 
     private bool walking;
 
@@ -18,11 +20,13 @@ public class BasicEnemyPatrol : MonoBehaviour
 
     [SerializeField] private bool chasingPlayer = false;
     private bool playerInRange;
+    Animator anim;
 
+    private bool stopEverything;
 
     void Start()
     {
-        source = GetComponent<AudioSource>();
+        stopEverything = false;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         
         // Disabling auto-braking allows for continuous movement
@@ -30,8 +34,9 @@ public class BasicEnemyPatrol : MonoBehaviour
         // approaches a destination point).
         agent.autoBraking = false;
         destPoint = Random.Range(0, points.Length);
-
+        anim = GetComponent<Animator>();
         GotoNextPoint();
+        
     }
 
 
@@ -40,6 +45,7 @@ public class BasicEnemyPatrol : MonoBehaviour
         if(!walking)
         {
             StartWalking();
+            
         }
         if (!playerInRange)
         {
@@ -74,29 +80,38 @@ public class BasicEnemyPatrol : MonoBehaviour
 
     void Update()
     {
-        // Choose the next destination point when the agent gets
-        // close to the current one.
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (!stopEverything)
         {
-            if(chasingPlayer)
+            // Choose the next destination point when the agent gets
+            // close to the current one.
+            if (!agent.pathPending && agent.remainingDistance < 0.5f)
             {
-                StopWalking();
-                Invoke("GotoNextPoint", waitTime);
+                if (chasingPlayer)
+                {
+                    StopWalking();
+                    Invoke("GotoNextPoint", waitTime);
+                }
+                else
+                {
+                    GotoNextPoint();
+                }
+
             }
-            else
+            if (!source.isPlaying && walking)
             {
-                GotoNextPoint();
+                source.PlayOneShot(steps);
             }
-            
+            if (source.isPlaying && !walking)
+            {
+                source.Stop();
+            }
         }
-        if(!source.isPlaying && walking)
+        else
         {
-            source.PlayOneShot(steps);
+            //source.Stop();
+            //screamSource.PlayOneShot(screech);
         }
-        if(source.isPlaying && !walking)
-        {
-            source.Stop();
-        }
+        
             
     }
 
@@ -104,8 +119,10 @@ public class BasicEnemyPatrol : MonoBehaviour
     {
         if(other.gameObject.layer == 8)
         {
-
+            stopEverything = true;
+            anim.SetBool("Attacking", true);
             MenuManager.instance.Die();
+
         }
     }
 
@@ -115,10 +132,10 @@ public class BasicEnemyPatrol : MonoBehaviour
         {
             if (!chasingPlayer)
             {
-                source.PlayOneShot(scream);
+                screamSource.PlayOneShot(scream);
             }
             
-            agent.destination = GameObject.Find("Player").transform.position;
+            agent.destination = other.gameObject.transform.position;
             agent.speed = 5f;
             playerInRange = true;
             chasingPlayer = true;
@@ -135,12 +152,21 @@ public class BasicEnemyPatrol : MonoBehaviour
 
     void StartWalking()
     {
+        if(chasingPlayer && !walking)
+        {
+            screamSource.PlayOneShot(scream);
+        }
         walking = true;
+        anim.SetBool("Walking", true);
+ 
     }
 
     void StopWalking()
     {
         walking = false;
+        anim.SetBool("Walking", false);
+
+        
     }
 
 }
