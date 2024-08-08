@@ -23,6 +23,8 @@ public class BasicEnemyPatrol : MonoBehaviour
     Animator anim;
 
     private bool stopEverything;
+    public float walkSpeed;
+    public float runSpeed;
 
     void Start()
     {
@@ -60,11 +62,11 @@ public class BasicEnemyPatrol : MonoBehaviour
         {
             
             agent.destination = GameObject.Find("Player").transform.position;
-            agent.speed = 5f;
+            agent.speed = runSpeed;
         }else
         {
             agent.destination = points[destPoint].position;
-            agent.speed = 2f;
+            agent.speed = walkSpeed;
         }
         
         
