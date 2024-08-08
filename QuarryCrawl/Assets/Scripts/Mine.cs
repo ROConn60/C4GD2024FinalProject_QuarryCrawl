@@ -19,8 +19,10 @@ public class Mine : MonoBehaviour, IInteractable
     public Transform pick;
     [SerializeField] private bool pickGoingDown;
     [SerializeField] private float pickDownClock;
+    private float timePickDown;
     private bool pickGoingUp;
     [SerializeField] private float pickUpClock;
+    private float timePickUp;
 
     void Start()
     {
@@ -32,9 +34,9 @@ public class Mine : MonoBehaviour, IInteractable
     {
         if(pickGoingDown)
         {
-            pick.Rotate(Vector3.forward, 3f);
+            pick.Rotate(Vector3.forward, 3f/timePickDown);
             pickDownClock += Time.deltaTime;
-            if(pickDownClock >= 0.2f)
+            if(pickDownClock >= timePickDown * 0.2f)
             {
                 pickGoingDown = false;
                 pickGoingUp = true;
@@ -42,9 +44,9 @@ public class Mine : MonoBehaviour, IInteractable
         }
         if(pickGoingUp)
         {
-            pick.Rotate(Vector3.forward, -0.75f);
+            pick.Rotate(Vector3.forward, -0.75f/timePickUp);
             pickUpClock += Time.deltaTime;
-            if(pickUpClock >= 0.8f)
+            if(pickUpClock >= timePickUp * 0.8f)
             {
                 pickGoingUp = false;
                 pickDownClock = 0f;
@@ -81,6 +83,8 @@ public class Mine : MonoBehaviour, IInteractable
     {
         if(!inventory.GetComponent<InventoryScript>().inventoryFull)
         {
+            timePickDown = Interaction.instance.toolCooldown;
+            timePickUp = Interaction.instance.toolCooldown;
             pickGoingDown = true;
             if (crystalsLeft > 0f)
             {
