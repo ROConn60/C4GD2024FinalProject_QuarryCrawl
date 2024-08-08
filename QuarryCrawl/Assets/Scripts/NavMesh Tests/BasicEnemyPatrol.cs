@@ -113,7 +113,11 @@ public class BasicEnemyPatrol : MonoBehaviour
     {
         if (other.gameObject.layer == 8)
         {
-            source.PlayOneShot(scream);
+            if (!chasingPlayer)
+            {
+                source.PlayOneShot(scream);
+            }
+            
             agent.destination = GameObject.Find("Player").transform.position;
             agent.speed = 5f;
             playerInRange = true;
