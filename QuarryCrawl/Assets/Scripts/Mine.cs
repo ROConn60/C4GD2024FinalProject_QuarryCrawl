@@ -16,14 +16,42 @@ public class Mine : MonoBehaviour, IInteractable
 
     private float replenishCountdown;
 
+    public Transform pick;
+    [SerializeField] private bool pickGoingDown;
+    [SerializeField] private float pickDownClock;
+    private bool pickGoingUp;
+    [SerializeField] private float pickUpClock;
+
     void Start()
     {
         inventory = GameObject.FindObjectOfType<InventoryScript>().gameObject;
+        pick = GameObject.Find("Pickaxe").GetComponent<Transform>();
     }
 
     void Update()
     {
-        if(crystalsLeft == 0f)
+        if(pickGoingDown)
+        {
+            pick.Rotate(Vector3.forward, 3f);
+            pickDownClock += Time.deltaTime;
+            if(pickDownClock >= 0.2f)
+            {
+                pickGoingDown = false;
+                pickGoingUp = true;
+            }
+        }
+        if(pickGoingUp)
+        {
+            pick.Rotate(Vector3.forward, -0.75f);
+            pickUpClock += Time.deltaTime;
+            if(pickUpClock >= 0.8f)
+            {
+                pickGoingUp = false;
+                pickDownClock = 0f;
+                pickUpClock = 0f;
+            }
+        }
+        if (crystalsLeft == 0f)
         {
             replenishCountdown -= Time.deltaTime;
             if(replenishCountdown < 0f)
@@ -53,6 +81,7 @@ public class Mine : MonoBehaviour, IInteractable
     {
         if(!inventory.GetComponent<InventoryScript>().inventoryFull)
         {
+            pickGoingDown = true;
             if (crystalsLeft > 0f)
             {
                 int crystalsMined = Random.Range(1, 6);
