@@ -40,7 +40,15 @@ public class PlayerControl : MonoBehaviour
         //forward
         float nextVelocityZ = Input.GetAxisRaw("Vertical") * speed;
         //up down
-        float nextVelocityY = -gravity;
+        float nextVelocityY;
+        if (CheckGrounded() == false)
+        {
+            nextVelocityY = -gravity;
+        }
+        else
+        {
+            nextVelocityY = rb.velocity.y;
+        }
         //left right
         float nextVelocityX = Input.GetAxisRaw("Horizontal") * speed;
         rb.velocity = transform.TransformDirection(nextVelocityX, nextVelocityY, nextVelocityZ);
