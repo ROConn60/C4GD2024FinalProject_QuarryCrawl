@@ -20,6 +20,8 @@ public class BasicEnemyPatrol : MonoBehaviour
     private bool playerInRange;
     Animator anim;
 
+    
+
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -40,7 +42,7 @@ public class BasicEnemyPatrol : MonoBehaviour
         if(!walking)
         {
             StartWalking();
-            anim.SetBool("Walking", true);
+            
         }
         if (!playerInRange)
         {
@@ -136,12 +138,18 @@ public class BasicEnemyPatrol : MonoBehaviour
 
     void StartWalking()
     {
+        
         walking = true;
+        anim.SetBool("Walking", true);
+ 
     }
 
     void StopWalking()
     {
         walking = false;
+        anim.SetBool("Walking", false);
+
+        
     }
 
 }
