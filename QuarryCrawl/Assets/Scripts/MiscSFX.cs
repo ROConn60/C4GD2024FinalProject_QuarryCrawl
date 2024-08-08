@@ -16,7 +16,7 @@ public class MiscSFX : MonoBehaviour
 
     void Start()
     {
-        instane = this;
+        instance = this;
         source = GetComponent<AudioSource>();
     }
 }
