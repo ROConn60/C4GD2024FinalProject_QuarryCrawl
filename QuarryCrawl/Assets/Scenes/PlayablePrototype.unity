@@ -107,7 +107,7 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
-    agentHeight: 2
+    agentHeight: 1.5
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
@@ -1121,9 +1121,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 8d9918a30ff65b74fb18adb8d174632e, type: 3}
     - target: {fileID: 7931501566455295395, guid: 8bc911c732f1ec54790c70f4dee79c00, type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 777693462}
+    - target: {fileID: 7931501566455295395, guid: 8bc911c732f1ec54790c70f4dee79c00, type: 3}
+      propertyPath: screech
+      value: 
+      objectReference: {fileID: 8300000, guid: d806545a2ae3b0a45b643619d8313e0a, type: 3}
+    - target: {fileID: 7931501566455295395, guid: 8bc911c732f1ec54790c70f4dee79c00, type: 3}
       propertyPath: waitTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7931501566455295395, guid: 8bc911c732f1ec54790c70f4dee79c00, type: 3}
+      propertyPath: screamSource
+      value: 
+      objectReference: {fileID: 777693468}
     - target: {fileID: 7931501566455295395, guid: 8bc911c732f1ec54790c70f4dee79c00, type: 3}
       propertyPath: points.Array.size
       value: 15
@@ -1210,7 +1222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8885334646837085456, guid: 8bc911c732f1ec54790c70f4dee79c00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.432125
+      value: 17.15
       objectReference: {fileID: 0}
     - target: {fileID: 8885334646837085456, guid: 8bc911c732f1ec54790c70f4dee79c00, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1218,7 +1230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8885334646837085456, guid: 8bc911c732f1ec54790c70f4dee79c00, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.7464
+      value: 38.84
       objectReference: {fileID: 0}
     - target: {fileID: 8885334646837085456, guid: 8bc911c732f1ec54790c70f4dee79c00, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3962,7 +3974,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558603963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.27, y: 2.3, z: -7.95}
+  m_LocalPosition: {x: 1.82, y: 2.3, z: -6.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5218,7 +5230,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 1.5
   m_BaseOffset: 0
@@ -5340,8 +5352,113 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 8.5
+  m_Radius: 3.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &777693468
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777693459}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d806545a2ae3b0a45b643619d8313e0a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.7
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 1
+  DopplerLevel: 3
+  MinDistance: 1
+  MaxDistance: 8.5
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6754168
+      value: 0.5763761
+      inSlope: -1.4151137
+      outSlope: -1.4151137
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0027777778
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &795323360
 GameObject:
   m_ObjectHideFlags: 0
@@ -5397,7 +5514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809041626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.01, y: 2.3, z: -6.81}
+  m_LocalPosition: {x: 18.65, y: 2.3, z: -6.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6302,9 +6419,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103912011}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.96, y: 1.08, z: 26.791101}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 17.15, y: -0.5, z: 38.84}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1414584510}
@@ -6339,8 +6456,11 @@ MonoBehaviour:
   - {fileID: 809041627}
   - {fileID: 69216017}
   - {fileID: 1198480168}
+  source: {fileID: 0}
+  screamSource: {fileID: 0}
   scream: {fileID: 8300000, guid: 8d9918a30ff65b74fb18adb8d174632e, type: 3}
   steps: {fileID: 8300000, guid: d62e6a118807f2f42bd75a781b7db34c, type: 3}
+  screech: {fileID: 0}
   waitTime: 1
   chasingPlayer: 0
 --- !u!135 &1103912018
@@ -6884,7 +7004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227126889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.22, y: 2.3, z: 2.39}
+  m_LocalPosition: {x: 15.01, y: 2.3, z: 2.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8184,7 +8304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518193158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.8, y: 2.3, z: -6.81}
+  m_LocalPosition: {x: 10.38, y: 2.3, z: -5.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8632,7 +8752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651226452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.27, y: 2.3, z: 5.18}
+  m_LocalPosition: {x: -1.2, y: 2.3, z: 5.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8663,7 +8783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735787533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.51, y: 2.3, z: -2.53}
+  m_LocalPosition: {x: -0.5, y: 2.3, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10033,7 +10153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077383998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7, y: 11.674912, z: 0.058706284}
+  m_LocalPosition: {x: -1.8, y: 11.674912, z: 0.058706284}
   m_LocalScale: {x: 27.214293, y: 1, z: 26.054998}
   m_ConstrainProportionsScale: 0
   m_Children: []
