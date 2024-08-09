@@ -6921,6 +6921,7 @@ MonoBehaviour:
   - {fileID: 809041627}
   - {fileID: 69216017}
   - {fileID: 1198480168}
+  destPoint: 0
   source: {fileID: 0}
   screamSource: {fileID: 0}
   scream: {fileID: 8300000, guid: 8d9918a30ff65b74fb18adb8d174632e, type: 3}
