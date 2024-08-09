@@ -66,7 +66,7 @@ public class Mine : MonoBehaviour, IInteractable
             }
         }else
         {
-            replenishCountdown = 30f;
+            replenishCountdown = 20f;
         }
         if (crystalType == 0) 
         {
