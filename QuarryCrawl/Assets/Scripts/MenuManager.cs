@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     public GameObject ControlsScreen;
     public GameObject PauseMenu;
     public GameObject GameoverScreen;
+    public GameObject WinScreen;
     public GameObject Settings;
     public GameObject shop;
     public Button startbutton;
@@ -42,6 +43,15 @@ public class MenuManager : MonoBehaviour
         settingsbutton2.onClick.AddListener(settingsscreen);
         Time.timeScale = 0f;
     }
+
+    public void WinGame()
+    {
+        Time.timeScale = 0f;
+        HUD.SetActive(false);
+        WinScreen.SetActive(true);
+        
+    }
+
     public void LoadGame()
     {
         Time.timeScale = 1f;
