@@ -14,11 +14,8 @@ public class MenuManager : MonoBehaviour
     public GameObject ControlsScreen;
     public GameObject PauseMenu;
     public GameObject GameoverScreen;
-<<<<<<< HEAD
     public GameObject WinScreen;
-=======
     public GameObject Settings;
->>>>>>> 6ffbe19fe44ebae9267a6fdd49ca420bf1b080dd
     public GameObject shop;
     public Button startbutton;
     public Button controlsbutton1;
