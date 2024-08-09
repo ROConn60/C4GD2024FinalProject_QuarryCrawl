@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     public GameObject ControlsScreen;
     public GameObject PauseMenu;
     public GameObject GameoverScreen;
+    public GameObject WinScreen;
     public GameObject shop;
     public Button startbutton;
     public Button controlsbutton1;
@@ -35,6 +36,15 @@ public class MenuManager : MonoBehaviour
         restartbutton.onClick.AddListener(restartgame);
         Time.timeScale = 0f;
     }
+
+    public void WinGame()
+    {
+        Time.timeScale = 0f;
+        HUD.SetActive(false);
+        WinScreen.SetActive(true);
+        
+    }
+
     public void LoadGame()
     {
         Time.timeScale = 1f;
