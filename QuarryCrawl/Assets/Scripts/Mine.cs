@@ -53,6 +53,10 @@ public class Mine : MonoBehaviour, IInteractable
                 pickUpClock = 0f;
             }
         }
+        /*if(!pickGoingDown && !pickGoingUp)
+        {
+            pick.rotation = new Vector3(0f, 60f, 15f);
+        }*/
         if (crystalsLeft == 0f)
         {
             replenishCountdown -= Time.deltaTime;
