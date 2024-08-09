@@ -5,7 +5,7 @@ using UnityEngine;
 public class BasicEnemyPatrol : MonoBehaviour
 {
     public Transform[] points;
-    private int destPoint;
+    [SerializeField] private int destPoint;
     private UnityEngine.AI.NavMeshAgent agent;
 
     public AudioSource source;
