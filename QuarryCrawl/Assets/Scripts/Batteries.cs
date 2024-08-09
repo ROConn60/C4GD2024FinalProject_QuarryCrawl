@@ -9,6 +9,7 @@ public class Batteries : MonoBehaviour, IInteractable
     public void Interact()
     {
         flashlight.GetComponent<FlashlightScript>().power = 100;
+        MiscSFX.instance.ChargeSound();
         Debug.Log("Power reset");
     }
 

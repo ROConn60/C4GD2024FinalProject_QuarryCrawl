@@ -1271,6 +1271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 218917338}
   - component: {fileID: 218917339}
+  - component: {fileID: 218917340}
   m_Layer: 8
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -1389,6 +1390,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &218917340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218917337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bdb651d4b2677b448e6ea0ba7d001bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  mineDonk: {fileID: 8300000, guid: d4be8b31cbfa3a146b8fdea700d4b5fc, type: 3}
+  mineDink: {fileID: 8300000, guid: d20dd5ed842ab9f4a9144402d59a6ad8, type: 3}
+  flashClick: {fileID: 8300000, guid: 68f6a3b5744e7c946b12b17ad2db77a1, type: 3}
+  zapCharge: {fileID: 8300000, guid: eca986ce221c14b47b9cbd57fa95820e, type: 3}
 --- !u!1 &236090406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,7 +2156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &361153934
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6079,7 +6097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &816229550
 RectTransform:
   m_ObjectHideFlags: 0

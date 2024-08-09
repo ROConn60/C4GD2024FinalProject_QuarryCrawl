@@ -96,9 +96,11 @@ public class Mine : MonoBehaviour, IInteractable
                 inventory.GetComponent<InventoryScript>().addToInventory(crystalType, crystalsMined);
                 crystalsLeft -= 1f;
                 Debug.Log("Mined");
+                MiscSFX.instance.MineSound();
             }
             else
             {
+                MiscSFX.instance.MineDinkSound();
                 Debug.Log("Vein Empty");
             }
         }

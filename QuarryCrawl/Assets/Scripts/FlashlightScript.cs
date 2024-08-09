@@ -37,6 +37,7 @@ public class FlashlightScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             changeFlashlight();
+            MiscSFX.instance.FlashlightSound();
         }
         if (flashlightOn)
         {
