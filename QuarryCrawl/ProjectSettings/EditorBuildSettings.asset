@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/NoraScene.unity
     guid: b60fa7f479d3b814ba09dc799919c710
+  - enabled: 1
+    path: Assets/Scenes/FInal Game.unity
+    guid: 951b7318cc6db2240b7dd7522ce23bc5
   m_configObjects: {}
