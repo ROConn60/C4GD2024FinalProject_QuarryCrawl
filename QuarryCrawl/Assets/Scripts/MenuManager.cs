@@ -14,18 +14,13 @@ public class MenuManager : MonoBehaviour
     public GameObject ControlsScreen;
     public GameObject PauseMenu;
     public GameObject GameoverScreen;
-    public GameObject WinScreen;
-    public GameObject Settings;
     public GameObject shop;
     public Button startbutton;
     public Button controlsbutton1;
     public Button controlsbutton2;
     public Button backbutton;
-    public Button backbutton2;
     public Button resumebutton;
     public Button restartbutton;
-    public Button settingsbutton;
-    public Button settingsbutton2;
     public bool isPaused = false;
     private bool shopOpen = false;
     // Start is called before the first frame update
@@ -36,22 +31,10 @@ public class MenuManager : MonoBehaviour
         controlsbutton1.onClick.AddListener(ShowControls);
         controlsbutton2.onClick.AddListener(ShowControls);
         backbutton.onClick.AddListener(goback);
-        backbutton2.onClick.AddListener(goback);
         resumebutton.onClick.AddListener(continuegame);
         restartbutton.onClick.AddListener(restartgame);
-        settingsbutton.onClick.AddListener(settingsscreen);
-        settingsbutton2.onClick.AddListener(settingsscreen);
         Time.timeScale = 0f;
     }
-
-    public void WinGame()
-    {
-        Time.timeScale = 0f;
-        HUD.SetActive(false);
-        WinScreen.SetActive(true);
-        
-    }
-
     public void LoadGame()
     {
         Time.timeScale = 1f;
@@ -60,13 +43,6 @@ public class MenuManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         StartScreen.SetActive(false);
-    }
-    public void settingsscreen()
-    {
-        StartScreen.SetActive(false);
-        PauseMenu.SetActive(false);
-        ControlsScreen.SetActive(false);
-        Settings.SetActive(true);
     }
 
     public void ShowControls()
@@ -78,7 +54,6 @@ public class MenuManager : MonoBehaviour
     public void goback()
     {
         ControlsScreen.SetActive(false);
-        Settings.SetActive(false);
         if (isPaused)
         {
             PauseMenu.SetActive(true);
